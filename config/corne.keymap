@@ -18,9 +18,10 @@
 // | SKMEH|  Z  |  X  |  C  |  V  |  B  |   |  N  |  M  |  ,  |  .  |  ;  | SKSUP|
 //                    | LALT|SPCL2|CMDTB|   |ENTCR|ESCL1|BCKS |
                         display-name = "Base";
+
                         bindings = <
    &kp CAPS           &kp Q &kp W &kp E &kp R &kp T   &kp Y &kp U  &kp I     &kp O   &kp P     &tog 4
-   &kp LSHFT          &kp A &kp S &kp D &kp F &kp G   &kp H &kp J  &kp K     &kp L   &kp COLON &kp RSHFT 
+   &kp LSHFT          &kp A &kp S &kp D &kp F &kp G   &kp H &kp J  &kp K     &kp L   &kp COLON &kp LSHFT 
    &sk LS(LA(LCTRL))  &kp Z &kp X &kp C &kp V &kp B   &kp N &kp M  &kp COMMA &kp DOT &kp SEMI  &sk LG(LS(LA(LCTRL)))
                   &kp LALT &lt 2 SPACE &mt LGUI TAB   &mt LCTRL RET &lt 3 ESC &kp BSPC
                         >;
