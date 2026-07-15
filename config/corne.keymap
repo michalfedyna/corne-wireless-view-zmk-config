@@ -9,20 +9,32 @@
 #include <dt-bindings/zmk/bt.h>
 
 / {
+        behaviors {
+                hm: homerow_mods {
+                        compatible = "zmk,behavior-hold-tap";
+                        #binding-cells = <2>;
+                        flavor = "balanced";
+                        tapping-term-ms = <280>;
+                        quick-tap-ms = <175>;
+                        require-prior-idle-ms = <150>;
+                        bindings = <&kp>, <&kp>;
+                };
+        };
+
         keymap {
                 compatible = "zmk,keymap";
                 default_layer {
 // -----------------------------------------------------------------------------------------
 // |      |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U  |  I  |  O  |  P  | TOG4 |
-// | SHFT |  A  |  S  |  D  |  F  |  G  |   |  H  |  J  |  K  |  L  |  :  | SHFT |
+// |      |CMDA |ALTS |CTLD |SHFF |  G  |   |  H  |SHFJ |CTLK |ALTL |CMD: |      |
 // | SKMEH|  Z  |  X  |  C  |  V  |  B  |   |  N  |  M  |  ,  |  .  |  ;  | SKSUP|
-//                    | LALT|CMDTB|SPCL2|   |ESCL1|ENTCR|BCKS |
+//                    | DEL | TAB |SPCL2|   |ESCL1| ENT |BCKS |
                         display-name = "Base";
                         bindings = <
    &kp CAPS           &kp Q &kp W &kp E &kp R &kp T   &kp Y &kp U  &kp I     &kp O   &kp P     &mo 3 
-   &kp LSHFT          &kp A &kp S &kp D &kp F &kp G   &kp H &kp J  &kp K     &kp L   &kp COLON &kp LSHFT 
+   &none              &hm LGUI A &hm LALT S &hm LCTRL D &hm LSHFT F &kp G   &kp H &hm RSHFT J &hm RCTRL K &hm RALT L &hm RGUI COLON &none 
    &sk LS(LA(LCTRL))  &kp Z &kp X &kp C &kp V &kp B   &kp N &kp M  &kp COMMA &kp DOT &kp SEMI  &sk LG(LS(LA(LCTRL)))
-                  &kp RALT &mt LCTRL TAB &lt 1 SPACE   &lt 2 ESC &mt LGUI RET &kp BSPC
+                  &kp DEL &kp TAB &lt 1 SPACE   &lt 2 ESC &kp RET &kp BSPC
                         >;
                 };
                 lower_layer {
